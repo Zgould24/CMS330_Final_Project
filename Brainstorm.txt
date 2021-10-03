@@ -1,0 +1,40 @@
+To simulate a dynamic memory allocation simulation:
+
+- use entirety of "memory block" for an allocation request, use last
+recorded block that is available and check for previous blocks to see if
+a "contiguous" block is available for allocation
+
+Ex) 
+	Request size for allocation is 7:
+
+	[1] [3] [-4] [-6] [3]
+			   <-  ^
+				   |
+			check this block
+			and search previous
+			blocks to fit an
+			allocation of size 7
+
+=======================================================================
+			
+- if a block is -5, block is completely empty
+- keep each size constant but revert sign indicating either empty
+or used
+
+Ex) if:
+
+[1] [-3] [4]
+
+, and we allocate size of 3, then [-3] -> [3]
+
+=======================================================================
+
+Steps for searching for a hole big enough for mem allocation:
+
+1. Check if it is a negative number no matter how big the block size
+2. Check if its big enough for the request size first
+3. If it isn't big enough for request size, search the previous (checking if it is a negative number MEANING ITS A HOLE) and add together to see if it is big enough
+4. Repeat and keep adding for each previous hole IF HOLE EXISTS and request size is still too large
+5. Check if you do reach the beginning of the array
+6. ONLY add the negative (HOLES) integers, fix it so it doesn't add positive
+7. If you add all consecutive holes and you reach an occpied block and can't add anymore to the hole size, consider it a failure and make a new request

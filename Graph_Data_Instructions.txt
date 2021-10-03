@@ -1,0 +1,11 @@
+Steps:
+1. Download Simulation_Output.csv
+2. Open the file with Excel
+3. The data should automatically fill out in the spreadsheet for you
+4. Highlight the headers and the data set and click the "insert" tab at the top
+5. Go to the "charts" section and create a scatter plot
+6. Right-click the average request size line and select "Format Data Series..."
+7. On the right-hand side, navigate to the 3 bars
+8. Select the "Secondary Axis" option
+9. Your graph will now have the correct layout
+10. Proceed to name your graphs accordingly to the correct algorithm it represents for less confusion
